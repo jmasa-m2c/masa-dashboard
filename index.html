@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>まさのAI会社 ダッシュボード</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Hiragino Sans', sans-serif; background: #0f0f1a; color: #e8e8f0; min-height: 100vh; }
+.header { background: linear-gradient(135deg, #1a1a3e, #2d1b69); padding: 20px 16px 16px; }
+.header h1 { font-size: 18px; font-weight: 700; color: #a78bfa; }
+.header .date { font-size: 12px; color: #9ca3af; margin-top: 4px; }
+.section { margin: 16px; background: #1a1a2e; border-radius: 12px; padding: 16px; }
+.section h2 { font-size: 14px; font-weight: 700; color: #a78bfa; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.stat { background: #0f0f1a; border-radius: 8px; padding: 10px; text-align: center; }
+.stat-num { font-size: 24px; font-weight: 700; }
+.stat-label { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+.done { color: #34d399; } .doing { color: #60a5fa; } .todo { color: #f59e0b; }
+.task-row { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid #2d2d4e; font-size: 13px; }
+.task-row:last-child { border-bottom: none; }
+.owner { color: #a78bfa; min-width: 60px; font-size: 11px; }
+.title { color: #d1d5db; }
+.task-row.empty { color: #6b7280; font-style: italic; }
+.note-title { background: #0f0f1a; border-radius: 8px; padding: 12px; font-size: 14px; font-weight: 600; color: #fbbf24; line-height: 1.5; }
+.x-post { background: #0f0f1a; border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+.x-num { font-size: 11px; color: #60a5fa; margin-bottom: 4px; }
+.x-text { font-size: 13px; line-height: 1.6; color: #e2e8f0; white-space: pre-wrap; }
+.platform-item { background: #0f0f1a; border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+.platform-label { font-size: 11px; color: #a78bfa; margin-bottom: 4px; }
+.platform-text { font-size: 13px; color: #d1d5db; line-height: 1.5; }
+.keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+.kw { background: #2d1b69; color: #c4b5fd; border-radius: 20px; padding: 4px 10px; font-size: 12px; }
+.channel { margin-bottom: 12px; }
+.ch-name { font-size: 13px; color: #d1d5db; margin-bottom: 4px; }
+.ch-bar-wrap { background: #0f0f1a; border-radius: 4px; height: 8px; margin-bottom: 3px; }
+.ch-bar { background: linear-gradient(90deg, #7c3aed, #a78bfa); height: 8px; border-radius: 4px; transition: width 0.3s; }
+.ch-nums { font-size: 11px; color: #9ca3af; }
+.total-box { background: #0f0f1a; border-radius: 8px; padding: 12px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+.total-label { font-size: 12px; color: #9ca3af; }
+.total-num { font-size: 20px; font-weight: 700; color: #34d399; }
+.achievement { font-size: 12px; color: #9ca3af; }
+.updated { text-align: center; font-size: 11px; color: #4b5563; padding: 16px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🏢 まさのAI会社 ダッシュボード</h1>
+  <div class="date">最終更新: 2026年07月04日 11:56</div>
+</div>
+
+<div class="section">
+  <h2>👥 AIスタッフ タスク状況</h2>
+  <div class="stats">
+    <div class="stat"><div class="stat-num done">12</div><div class="stat-label">完了</div></div>
+    <div class="stat"><div class="stat-num doing">5</div><div class="stat-label">作業中</div></div>
+    <div class="stat"><div class="stat-num todo">1</div><div class="stat-label">未着手</div></div>
+  </div>
+  <div style="font-size:12px; color:#9ca3af; margin-bottom:6px;">現在作業中</div>
+  <div class="task-row"><span class="owner">プロ</span><span class="title">note商品ラインナップ 価格設計</span></div>
+<div class="task-row"><span class="owner">アナ</span><span class="title">note収益シミュレーション（3ヶ月）</span></div>
+<div class="task-row"><span class="owner">デザ</span><span class="title">noteマガジン・有料記事カバー画像設計</span></div>
+<div class="task-row"><span class="owner">リド</span><span class="title">全体進捗管理・20時報告</span></div>
+<div class="task-row"><span class="owner">そら</span><span class="title">かいから共有メモ受信。ELIPROコンサル告知の連携投稿スケジュールを確認しました。投稿①は19時自動実行、投稿②③は明日・明後日に実行します。</span></div>
+
+</div>
+
+<div class="section">
+  <h2>📝 今日のコンテンツ</h2>
+  <div style="font-size:12px; color:#9ca3af; margin-bottom:6px;">note記事タイトル</div>
+  <div class="note-title"># 鏡を見つめることで目覚める、本当の自分との対話</div>
+  <div style="font-size:12px; color:#9ca3af; margin:10px 0 6px;">X投稿</div>
+  <div class="x-post"><div class="x-num">投稿1</div><div class="x-text">投稿1（健康・ウェルネス）
+体の声を聞く習慣、もう始めましたか？疲れた時は無理をせず、温泉や入浴で心身をリセット。小さな自分へのご褒美が、実は最高の投資なんです。今日から、自分を大切にする選択をしてみませんか？
+#本質調律 #ウェルネス</div></div>
+<div class="x-post"><div class="x-num">投稿2</div><div class="x-text">投稿2（スピリチュアル・自己成長）
+日常の中にある「気づき」を見逃していませんか？宇宙からのサインは、思わぬ形で届きます。瞑想や内省の時間を持つことで、本当の自分の声が聞こえてくる。その答えが、人生を変えます。
+#スピリチュアル #自己成長</div></div>
+<div class="x-post"><div class="x-num">投稿3</div><div class="x-text">投稿3（AI副業・収益化）
+AIツールを使うだけで収入が生まれる時代です。難しく考えず、まずは小さく始める。あなたのスキルと組み合わせたら、新しい可能性が開けますよ。一緒に仕組みづくりをしましょう。
+#AI副業 #新しい働き方</div></div>
+
+  <div style="font-size:12px; color:#9ca3af; margin:10px 0 6px;">TikTok・YouTube</div>
+  <div class="platform-item">
+    <div class="platform-label">🎵 TikTok台本冒頭</div>
+    <div class="platform-text">【台本】
+
+オープニング（5秒）
+「皆さんって、健康診断の結果って気になりますか？実は、その数値だけじゃなくて、もっと大事なことがあるんです」
+
+本題（50秒）
+「健康って数字で測れるものばかりじゃないんですよ。確かに健康診断は大事です。でも本当の健康ってもっと深いんです。例えば、毎日の疲れ、心の状態、睡眠の質、これらって病院の検査じゃ見えない部分なんです。
+
+実は、自分の体と心の声を聞く習慣があ</div>
+  </div>
+  <div class="platform-item">
+    <div class="platform-label">▶️ YouTubeタイトル</div>
+    <div class="platform-text">地方の公共施設を活用した健康法｜月額わずかで体と心を整える方法</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🔥 今日のトレンドキーワード</h2>
+  <div class="keywords"><span class="kw">鏡野 町 国民 健康 保険 病院</span> <span class="kw">奈良 健康 ランド 料金</span> <span class="kw">下松 健康 パーク プール</span> <span class="kw">クモ スピリチュアル</span> <span class="kw">スピリチュアル ティーチング</span> <span class="kw">右 頬 ニキビ スピリチュアル</span></div>
+</div>
+
+<div class="section">
+  <h2>💰 売上サマリー（2026-07）</h2>
+  <div class="total-box">
+    <div>
+      <div class="total-label">今月合計</div>
+      <div class="total-num">¥0</div>
+      <div class="achievement">目標 ¥160,000 の 0%</div>
+    </div>
+  </div>
+  
+        <div class="channel">
+          <div class="ch-name">BASE（物販）</div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%"></div></div>
+          <div class="ch-nums">¥0 / ¥30,000（0%）</div>
+        </div>
+        <div class="channel">
+          <div class="ch-name">note（記事・鑑定）</div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%"></div></div>
+          <div class="ch-nums">¥0 / ¥50,000（0%）</div>
+        </div>
+        <div class="channel">
+          <div class="ch-name">楽天市場</div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%"></div></div>
+          <div class="ch-nums">¥0 / ¥50,000（0%）</div>
+        </div>
+        <div class="channel">
+          <div class="ch-name">メルカリ</div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%"></div></div>
+          <div class="ch-nums">¥0 / ¥30,000（0%）</div>
+        </div>
+  <div style="font-size:11px; color:#6b7280; margin-top:8px;">※ 売上はrevenue.jsonを更新してください</div>
+</div>
+
+<div class="updated">自動生成 by まさのAI会社システム</div>
+</body>
+</html>
